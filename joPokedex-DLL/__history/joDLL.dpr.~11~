@@ -1,0 +1,143 @@
+library joDLL;
+
+uses
+  System.SysUtils,
+  System.Classes,
+  windows;//, ShareMem;
+
+type
+ pElement=^tElement;
+ tElement=record
+         next    : pElement;
+         LP      : integer;
+         nazwa   : string;
+         gatunek : string;
+end;
+var
+ first  :pElement;
+
+
+{$R *.res}
+
+function Zamien(gatunek : integer) : WideString; stdcall;
+begin
+case gatunek of
+ 1: result:='Grass';
+ 2: result:='Fire';
+ 3: result:='Water';
+ 4: result:='Bug';
+ 5: result:='Normal';
+ 6: result:='Fairy';
+ 7: result:='Poison';
+ 8: result:='Electric';
+ 9: result:='Ground';
+ 10: result:='Fighting';
+ 11: result:='Psychic';
+ 12: result:='Rock';
+ 13: result:='Ghost';
+ 14: result:='Mime';
+ 15: result:='Ice';
+ 16: result:='Dragon';
+ else result:=' ';
+ end;
+end;
+
+
+
+
+
+function dlugoscc:integer;stdcall;
+var
+  i:integer;
+  temp: pElement;
+begin
+i := 0;
+temp:=first;
+   while temp<>nil do
+   begin
+     temp:=temp^.next;
+     i := i+1;
+   end;
+   dlugoscc:=i;
+end;
+
+
+//procedure dodajdolisty(var wLP: integer; wNazwa: string; wGatunek: string; first: pElement);
+//    stdcall;
+
+{var
+  NewOne: pElement;
+begin
+  new(newone);
+  newone^.next := first;
+  first := newone;
+  newOne^.LP:= wLP;
+  newOne^.nazwa:= wNazwa;
+  newOne^.gatunek:= wGatunek;
+end;  }
+procedure dodajdolisty(var head:pelement; elem:Pelement);stdcall;
+var
+prev : pelement ;
+
+begin
+if head = nil then
+  head:=elem
+else
+  begin
+    prev  :=head;
+
+    while prev^.next<>nil do
+      prev:=prev^.next;
+
+    prev^.next:=elem;
+  end ;
+end;
+
+
+procedure WyswietlElement(var caption:integer; LP:integer; Nazwa:string; gatunek:string ); stdcall;
+var
+ wyswietlany : pElement;
+
+begin
+wyswietlany:=first;
+  while wyswietlany^.LP <> (caption) do
+    begin
+      wyswietlany := wyswietlany^.next;
+    end;
+  if wyswietlany <> nil then
+    begin
+      LP:=(wyswietlany^.LP);
+      nazwa:=wyswietlany^.nazwa;
+      Gatunek:=(wyswietlany^.Gatunek);
+    end;
+end;
+
+procedure zapiszdopliku; stdcall;
+const
+    pokemony = 'D:\PROJEKT JoPokedex\pokemony.dicx';
+var wyjscie : Textfile;
+    temp : pElement;
+Begin
+    AssignFile(wyjscie, pokemony);
+    rewrite(wyjscie);
+    temp := first;
+    while temp <> nil do
+    begin
+      Writeln(wyjscie, temp^.LP);
+      Writeln(wyjscie, temp^.gatunek);
+      WriteLn(wyjscie, temp^.nazwa);
+      temp := temp^.next;
+    end;
+    closefile(wyjscie);
+end;
+
+
+
+exports
+  Zamien, dlugoscc, dodajdolisty, wyswietlelement, zapiszdopliku;
+
+
+
+
+begin
+end.

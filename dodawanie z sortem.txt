@@ -1,0 +1,45 @@
+procedure dodajDoListy(var glowa: PElement; var ogon: PElement;
+  var Nowy: PElement); stdcall;
+var
+  NaLiscie: PElement;
+  // zmienna pomocnicza do oblsugi listy: naLiscie typu PElement
+begin
+  if glowa = nil then // glowa - pierwszy element listy.
+  begin
+    glowa := Nowy;
+    // przypisywanie pierwszemu elementowi listy wygenerowanej zmiennej
+    ogon := glowa; // ostatni element bêdzie w tym momencie pusty
+  end
+  else
+  begin
+    if glowa^.dane.nazwisko > Nowy^.dane.nazwisko then // sortowanie wg nazwisk
+    begin
+      Nowy^.nastepny := glowa; // glowa wiêkszy wiêc idzie na dó³
+      glowa^.poprzedni := Nowy;
+      glowa := Nowy;
+    end
+    else
+    begin
+      NaLiscie := glowa;
+      while (NaLiscie^.nastepny <> nil) and // odwo³ywanie siê przez wskaŸniki
+        (NaLiscie^.nastepny^.dane.nazwisko < Nowy^.dane.nazwisko) do
+      // do kolejnych elementow
+      begin
+        NaLiscie := NaLiscie^.nastepny;
+      end;
+      if NaLiscie^.nastepny = nil then
+      begin
+        NaLiscie^.nastepny := Nowy;
+        Nowy^.poprzedni := NaLiscie;
+        ogon := Nowy;
+      end
+      else
+      begin
+        Nowy^.nastepny := NaLiscie^.nastepny;
+        Nowy^.poprzedni := NaLiscie;
+        NaLiscie^.nastepny^.poprzedni := Nowy;
+        NaLiscie^.nastepny := Nowy;
+      end;
+    end;
+  end;
+end;

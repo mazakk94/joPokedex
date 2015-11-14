@@ -1,0 +1,16 @@
+ 1: gatunek:=strtoint('Grass');
+ 2: gatunek:='Fire';
+ 3: gatunek:='Water' ;
+ 4: gatunek:='Bug';
+ 5: gatunek:='Normal';
+ 6: gatunek:='Fairy';
+ 7: gatunek:='Poison';
+ 8: gatunek:='Electric';
+ 9: gatunek:='Ground';
+ 10: gatunek:='Fighting';
+ 11: gatunek:='Psychic' ;
+ 12: gatunek:='Rock';
+ 13: gatunek:='Ghost';
+ 14: gatunek:='Mime';
+ 15: gatunek:='Ice';
+ 16: gatunek:='Dragon';

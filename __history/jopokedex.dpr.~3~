@@ -1,0 +1,14 @@
+program jopokedex;
+
+uses
+  Vcl.Forms, ShareMem,
+  jopokedex1 in 'jopokedex1.pas' {formPokedex};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TformPokedex, formPokedex);
+  Application.Run;
+end.

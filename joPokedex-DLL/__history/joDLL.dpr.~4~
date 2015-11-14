@@ -1,0 +1,29 @@
+library joDLL;
+
+uses
+  System.SysUtils,
+  System.Classes;
+
+type
+  pElement=^tElement;
+  tElement=record
+         next   : pElement;
+         LP    : integer;
+         nazwa : string;
+         gatunek : string;
+end;
+var
+  first  :pElement;
+
+procedure ShowMessag(const Msg: string); stdcall;
+begin
+  showmessag('siemano!');
+end;
+{$R *.res}
+
+exports
+showmessag;
+
+
+begin
+end.

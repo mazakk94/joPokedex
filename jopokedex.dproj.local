@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.853,=C:\Users\user\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.444,=C:\Users\user\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.632,C:\Users\user\Documents\RAD Studio\Projects\Unit1.pas=D:\PROJEKT JoPokedex\jopokedex1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.917,=C:\Users\user\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.092,=C:\Users\user\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.632,C:\Users\user\Documents\RAD Studio\Projects\Unit1.dfm=D:\PROJEKT JoPokedex\jopokedex1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.517,C:\Users\user\Desktop\zapasowy\jopokedex1.pas=D:\PROJEKT JoPokedex\jopokedex1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.517,C:\Users\user\Desktop\zapasowy\jopokedex1.dfm=D:\PROJEKT JoPokedex\jopokedex1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.373,=C:\Users\user\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.104,C:\Users\user\Documents\RAD Studio\Projects\Project1.dproj=D:\PROJEKT JoPokedex\jopokedex.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,113 @@
+library joDLL;
+
+uses
+  //System.SysUtils,
+  //System.Classes,
+  windows;
+
+type
+ pElement=^tElement;
+ tElement=record
+         next    : pElement;
+         LP      : integer;
+         nazwa   : string;
+         gatunek : string;
+end;
+var
+ first  :pElement;
+
+
+{$R *.res}
+
+function Zamien(gatunek : integer) : WideString;
+begin
+case gatunek of
+ 1: result:='Grass';
+ 2: result:='Fire';
+ 3: result:='Water';
+ 4: result:='Bug';
+ 5: result:='Normal';
+ 6: result:='Fairy';
+ 7: result:='Poison';
+ 8: result:='Electric';
+ 9: result:='Ground';
+ 10: result:='Fighting';
+ 11: result:='Psychic';
+ 12: result:='Rock';
+ 13: result:='Ghost';
+ 14: result:='Mime';
+ 15: result:='Ice';
+ 16: result:='Dragon';
+ else result:=' ';
+ end;
+end;
+
+
+
+
+
+function dlugoscc:integer;
+var
+  i:integer;
+  temp: pElement;
+begin
+i := 0;
+temp:=first;
+   while temp<>nil do
+   begin
+     temp:=temp^.next;
+     i := i+1;
+   end;
+   dlugoscc:=i;
+end;
+
+
+
+
+
+
+exports
+  dlugoscc, zamien;
+
+
+
+
+begin
+end.
+
+{procedure odswiez;
+var
+wsk: pElement;
+element : TListItem;
+begin
+  wsk := first;
+  while wsk<>nil do
+    begin
+    element := Lista.Items.Add;
+    element.Caption := inttostr(wsk^.LP);
+    element.SubItems.Add(wsk^.nazwa);
+    element.SubItems.Add(zamien(strtoint(wsk^.gatunek)));
+    wsk := wsk^.next;
+    end;
+end;    }
+{procedure odswiezaj(LP : integer;Nazwa : String; Gatunek : String;
+                           first: pElement);stdcall;
+var elem: pElement;
+
+begin
+  elem:=first;
+
+  while elem<>nil do
+  begin
+    if pop_numer=elem^.Numer then
+      begin
+        elem^.LP:=LP;
+        elem^.Nazwa:=Nazwa;
+        elem^.Gatunek:=Gatunek;
+        break;
+      end;
+
+    elem:=elem^.next;
+  end;
+end;
+           }

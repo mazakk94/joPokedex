@@ -1,0 +1,96 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+
+
+type
+  pElement = ^tElement;
+  tElement = record
+                Next: pElement;
+                Dane: string;
+             end;
+
+var
+  First: pElement;
+
+procedure DodajNaPoczatek(wartosc: string);
+var
+  NewOne: pElement;
+
+begin
+  New(newOne);
+  newOne^.next:= first;
+  newOne^.dane:= wartosc;
+  first := newOne;
+end;
+
+procedure DodajPrzedWartosc(szukana,nowa: string);
+var
+  NewOne,temp: pElement;
+begin
+  temp:=first;
+  while (temp^.next <> nil) and (temp^.dane <> szukana) do
+  temp:= temp^.Next;
+
+  if temp^.dane=szukana then
+    begin
+      new(newone);
+      newOne^ := temp^;
+      temp^.Dane:= nowa;
+      temp^.Next:= newone;
+    end;
+
+end;
+
+procedure DodajZaWartosc(szukana,nowa: string);
+var
+  NewOne,temp: pElement;
+begin
+  temp:=first;
+  while (temp^.Next <> nil) and (temp^.Dane <> szukana) do
+  temp:= temp^.Next;
+
+  if temp^.dane=szukana then
+    begin
+      new(newone);
+      newOne^.next := temp^.next;
+      temp^.Dane:= nowa;
+      temp^.Next:= newone;
+      end;
+end;
+
+procedure DodajNaKoniec(wartosc: string);
+var
+  NewOne,temp: pElement;
+begin
+
+if first=nil then DodajNaPoczatek(wartosc) else
+
+  new(newone);
+  temp:=first;
+
+  while (temp^.Next <> nil) do
+  temp:= temp^.Next;
+  newOne^.next := temp^.next;
+  newone^.Dane:= wartosc;
+  temp^.Next:= newone;
+end;
+
+
+
+begin
+
+  try
+    { TODO -oUser -cConsole Main : Insert code here }
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+  readln;
+end.

@@ -1,0 +1,5 @@
+1 1 Bulbasaur
+2 2 Ivysaur
+3 0 Venusaur
+4 1 Charmander
+5 0 Charmeleon

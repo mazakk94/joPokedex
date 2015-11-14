@@ -1,0 +1,34 @@
+Venusaur -> Magikarp -> Charmander -> Charizard
+
+Venusaur -> Charmander -> Magikarp -> Charizard
+
+Vanusaur -> Charmander -> Charizard -> Magikarp
+
+poprz    ->  wsk  ->    wsk^.next  -> wsk^.next^.next
+
+magikarp next = charizard
+charmander next = magikarp
+venusaur next = charmander
+
+
+
+wsk = charmander
+wsk^.next = magikarp
+wsk^.next^.next = charizard
+
+poprz= venusaur
+poprz^.next= charmander
+
+
+temp = magikarp
+temp^.next = charizard
+
+
+
+
+
+
+
+
+
+temp = charmander

@@ -1,0 +1,12 @@
+4
+2
+Charmander
+3
+1
+Venusaur
+2
+1
+Ivysaur
+1
+1
+Bulbasaur
